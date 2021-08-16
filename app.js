@@ -27,7 +27,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.MONGO, {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://"+process.env.MONGODB_URI+"@cluster0.vuiug.mongodb.net/userDB", {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
@@ -170,10 +170,6 @@ app.post("/login", function(req, res){
   });
 
 });
-
-
-
-
 
 
 
